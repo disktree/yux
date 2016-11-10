@@ -1,0 +1,75 @@
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('font/Helvetica Neue 65 Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+}
+html,
+body {
+	margin: 0;
+	width: 100%;
+	height: 100%;
+}
+body {
+
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+
+	font-family: 'Helvetica';
+	font-size: 11px;
+
+	background: #000;
+	color: #fff;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+
+	cursor: help;
+}
+
+h1 {
+	font-size: 60px;
+}
+
+#videoplayers {
+
+	iframe {
+		display: none;
+	}
+}
+
+#info {
+
+	position: fixed;
+	bottom: 20px;
+	left: 20px;
+
+	letter-spacing: -10px;
+	font-size: 100px;
+
+	&:after {
+		content: '.';
+	}
+
+	z-index: 1001;
+}
+
+#overlay {
+
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+	background: #ffffff;
+
+	z-index: 1000;
+
+	transition: opacity 0.5s;
+}

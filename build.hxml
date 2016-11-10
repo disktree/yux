@@ -1,0 +1,12 @@
+-js bin/yux.js
+-main yux.App
+-lib om.api
+-cp src
+--no-traces
+#-debug
+#-lib lessie
+#-D lessieOutput=./bin/yux.css
+
+-cmd lessc res/style/yux.less bin/yux.css
+-cmd cp -r res/font bin/
+-cmd cp res/html/index.html bin/index.html
