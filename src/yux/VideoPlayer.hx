@@ -8,6 +8,7 @@ import om.api.youtube.YouTubePlayer;
 class VideoPlayer {
 
 	public var element(default,null) : DivElement;
+	public var index(default,null) : Int;
 
 	public var volume(get,set) : Int;
 	inline function get_volume() return player.getVolume();
@@ -16,8 +17,7 @@ class VideoPlayer {
 		return player.getVolume();
 	}
 
-	var index : Int;
-	public var player : YouTubePlayer;
+	var player : YouTubePlayer;
 	var callback : YouTubePlayer;
 
 	public function new( index : Int ) {

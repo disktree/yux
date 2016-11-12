@@ -1,12 +1,20 @@
--js bin/yux.js
--main yux.App
--lib om.api
 -cp src
 --no-traces
 #-debug
-#-lib lessie
-#-D lessieOutput=./bin/yux.css
+-dce full
+--each
 
+--next
+-php bin
+-main yux.Index
+-resource res/html/index.html@index
+-cmd mkdir -p bin/data
+-cmd cp res/data/*.json bin/data/
+-cmd cp res/web/htaccess bin/.htaccess
+
+--next
+-js bin/yux.js
+-main yux.App
+-lib om.api
 -cmd lessc res/style/yux.less bin/yux.css
 -cmd cp -r res/font bin/
--cmd cp res/html/index.html bin/index.html
