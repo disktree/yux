@@ -32,8 +32,16 @@ body {
 	cursor: help;
 }
 
+a {
+    text-decoration: none;
+    color: #fff;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
 h1 {
-	font-size: 60px;
+	font-size: 80px;
 }
 
 #videoplayers {
@@ -72,4 +80,16 @@ h1 {
 	z-index: 1000;
 
 	transition: opacity 0.5s;
+}
+
+#index {
+
+    h1 {
+        margin: 100px;
+    }
+
+    ol {
+        margin: 50px;
+        list-style: none;
+    }
 }

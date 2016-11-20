@@ -44,57 +44,61 @@ class App {
 
 			item = untyped ITEM;
 
-			infoElement = document.getElementById( 'info' );
-			overlayElement = document.getElementById( 'overlay' );
+			if( item != null ) {
+				
+				infoElement = document.getElementById( 'info' );
+				overlayElement = document.getElementById( 'overlay' );
 
-			if( om.System.isMobile() ) {
-				overlayElement.style.opacity = '0';
-				infoElement.textContent = 'Desktop only';
-				return;
-			}
+				if( om.System.isMobile() ) {
+					overlayElement.style.opacity = '0';
+					infoElement.textContent = 'Desktop only';
+					return;
+				}
 
-			YouTube.init( function() {
+				YouTube.init( function() {
 
-				trace( 'Youtube ready' );
+					trace( 'Youtube ready' );
 
-				infoElement.textContent = item.title;
+					infoElement.textContent = item.title;
 
-				var container = document.getElementById( 'videoplayers' );
-				var i = 0;
-				var players = new Array<VideoPlayer>();
-				for( video in item.videos ) {
+					var container = document.getElementById( 'videoplayers' );
+					var i = 0;
+					var players = new Array<VideoPlayer>();
+					for( video in item.videos ) {
 
-					var player = new VideoPlayer( i );
-					players.push( player );
-					container.appendChild( player.element );
+						var player = new VideoPlayer( i );
+						players.push( player );
+						container.appendChild( player.element );
 
-					player.load( video.id, function() {
+						player.load( video.id, function() {
 
-						if( video.title != null ) infoElement.textContent = video.title;
-						if( video.volume != null ) player.volume = video.volume;
-						player.seekTo( (video.start != null) ? video.start : 0 );
+							if( video.title != null ) infoElement.textContent = video.title;
+							if( video.volume != null ) player.volume = video.volume;
+							player.seekTo( (video.start != null) ? video.start : 0 );
 
-						trace( 'Player ${player.index} ready' );
+							trace( 'Player ${player.index} ready' );
 
-						if( players.length == item.videos.length ) {
+							if( players.length == item.videos.length ) {
 
-							trace( "Playlist ready" );
+								trace( "Playlist ready" );
 
-							overlayElement.style.opacity = '0';
+								overlayElement.style.opacity = '0';
 
-							for( player in players ) {
-								if( video.delay != null ) {
-									Timer.delay( function() player.play(), video.delay * 1000 );
-								} else {
-									player.play();
+								for( player in players ) {
+									if( video.delay != null && video.delay > 0 ) {
+										Timer.delay( function() player.play(), video.delay * 1000 );
+									} else {
+										player.play();
+									}
 								}
 							}
-						}
-					});
+						});
 
-					i++;
-				}
-			});
+						i++;
+					}
+				});
+			}
+
 		}
 	}
 }

@@ -1,6 +1,6 @@
 -cp src
 --no-traces
-#-debug
+-debug
 -dce full
 --each
 
@@ -8,6 +8,7 @@
 -php bin
 -main yux.Index
 -resource res/html/index.html@index
+-resource res/html/track.html@track
 -cmd mkdir -p bin/data
 -cmd cp res/data/*.json bin/data/
 -cmd cp res/web/htaccess bin/.htaccess
