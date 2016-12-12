@@ -1,6 +1,6 @@
 -cp src
 --no-traces
--debug
+#-debug
 -dce full
 --each
 
@@ -19,3 +19,4 @@
 -lib om.api
 -cmd lessc res/style/yux.less bin/yux.css
 -cmd cp -r res/font bin/
+-cmd cp -r res/image bin/

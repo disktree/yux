@@ -1,6 +1,6 @@
 
 @font-face {
-  font-family: 'Helvetica';
+  font-family: 'Helv';
   src: url('font/Helvetica Neue 65 Medium.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
@@ -18,10 +18,11 @@ body {
 
 	margin: 0;
 	padding: 0;
-	overflow: hidden;
+	overflow-x: hidden;
 
-	font-family: 'Helvetica';
-	font-size: 11px;
+	font-family: 'Helv';
+	font-size: 48px;
+	letter-spacing: -4px;
 
 	background: #000;
 	color: #fff;
@@ -35,8 +36,9 @@ body {
 a {
     text-decoration: none;
     color: #fff;
+    transition: color 0.1s;
     &:hover {
-        text-decoration: underline;
+        color: #72DEC2;
     }
 }
 
@@ -45,10 +47,16 @@ h1 {
 }
 
 #videoplayers {
-
 	iframe {
 		display: none;
 	}
+}
+
+#index {
+    white-space: nowrap;
+    ol {
+        padding-left: 100px;
+    }
 }
 
 #info {
@@ -80,6 +88,20 @@ h1 {
 	z-index: 1000;
 
 	transition: opacity 0.5s;
+}
+
+#start {
+    position: fixed;
+	top: 50%;
+	left: 50%;
+	right: 50%;
+	bottom: 50%;
+    transform: translate( -50%, -50% );
+
+	background: #ffffff;
+
+	z-index: 2000;
+
 }
 
 #index {
