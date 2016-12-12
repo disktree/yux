@@ -80,6 +80,10 @@ class VideoPlayer {
 	}
 
 	/*
+	public inline function stop() {
+		player.stopVideo();
+	}
+
 	public function load( id : String ) {
 		player.loadVideoById( id );
 	}
