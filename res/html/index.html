@@ -3,7 +3,7 @@
 	<head>
 
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<meta name="theme-color" content="#000">
 		<meta name="description" content="ʍӋϟŁξЯӋ ʘӺ ʍɅҊӃіƝÐ">
 
@@ -11,21 +11,33 @@
 
 		<link rel="stylesheet" href="yux.css" media="screen">
 
-		<script>
-			var ITEM = ::json::;
-		</script>
-
-		<script src="yux.js" defer></script>
+		<style media="screen">
+			h1 {
+				margin-top: 40px;
+				padding: 20px;
+				font-size: 100px;
+			}
+			ol {
+				padding: 10px;
+				margin-left: 30px;
+				font-size: 50px;
+				line-height: 40px;
+				letter-spacing: -4px;
+			}
+		</style>
 
 	</head>
 
 	<body id="index">
 		<h1>|||Y|U|X|||</h1>
 		<ol>
-			::foreach items::
-			<li><a href="::index::">::title::</a></li>
-			::end::
+			::foreach items::<li>
+				<a href="::index::">::title::</a>
+			</li>::end::
 		</ol>
+		<footer>
+			<a href="http://disktree.net">http://disktree.net</a>
+		</footer>
 	</body>
 
 </html>

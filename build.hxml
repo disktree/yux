@@ -1,6 +1,6 @@
 -cp src
---no-traces
-#-debug
+#--no-traces
+-debug
 -dce full
 --each
 

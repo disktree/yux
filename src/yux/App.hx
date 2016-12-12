@@ -1,5 +1,6 @@
 package yux;
 
+import js.Browser.console;
 import js.Browser.document;
 import js.Browser.window;
 import js.html.Element;
@@ -95,6 +96,8 @@ class App {
 
 	static function main() {
 
+		console.log( '|||Y|U|X|||' );
+		
 		window.onload = function() {
 
 			var isMobile = om.System.isMobile();
@@ -105,7 +108,6 @@ class App {
 
 				infoElement = document.getElementById( 'info' );
 				overlayElement = document.getElementById( 'overlay' );
-
 
 				/*
 				var btn = document.getElementById( 'start' );
