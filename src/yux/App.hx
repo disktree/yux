@@ -1,48 +1,30 @@
 package yux;
 
+import haxe.Timer;
 import js.Browser.console;
 import js.Browser.document;
+import js.Browser.navigator;
 import js.Browser.window;
 import js.html.Element;
-import haxe.Timer;
 import om.api.youtube.YouTube;
+import om.api.youtube.YouTubePlayer;
 
-typedef PlaylistVideoItem = {
+typedef PlaylistItem = {
+	var title : String;
+	var videos : Array<VideoItem>;
+}
+typedef VideoItem = {
 	var id : String;
-	@:optional var title : String;
+	var title : String;
 	@:optional var volume : Int;
 	@:optional var delay : Int;
 	@:optional var start : Int;
 }
 
-typedef PlaylistItem = {
-	var title : String;
-	var videos : Array<PlaylistVideoItem>;
-}
-
 class App {
 
 	static var isMobile : Bool;
-	static var item : PlaylistItem;
-	static var players : Array<VideoPlayer>;
-	static var infoElement : Element;
-	static var overlayElement : Element;
-
-	static function update( time : Float ) {
-		window.requestAnimationFrame( update );
-	}
-
-	static function play() {
-		for( i in 0...players.length ) {
-			var video = item.videos[i];
-			var player = players[i];
-			if( video.delay != null && video.delay > 0 ) {
-				Timer.delay( function() player.play(), video.delay * 1000 );
-			} else {
-				player.play();
-			}
-		}
-	}
+	static var players : Array<YouTubePlayer>;
 
 	static function main() {
 
@@ -50,60 +32,69 @@ class App {
 
 		window.onload = function() {
 
-			item = untyped ITEM;
 			isMobile = om.System.isMobile();
-			players = new Array<VideoPlayer>();
+			players = [];
 
-			infoElement = document.getElementById( 'info' );
-			overlayElement = document.getElementById( 'overlay' );
-
-			var initButton = document.getElementById( 'init' );
-			if( isMobile ) {
-				infoElement.style.display = 'none';
-				initButton.style.display = 'inline-block';
-			}
+			var item : PlaylistItem = untyped ITEMDATA;
+			trace(item);
 
 			YouTube.init( function() {
 
 				trace( 'Youtube ready' );
 
-				infoElement.textContent = item.title;
+				var videoplayers = document.getElementById( 'videoplayers' );
 
-				var container = document.getElementById( 'videoplayers' );
-				var i = 0;
-				for( video in item.videos ) {
+				for( i in 0...item.videos.length ) {
 
-					var player = new VideoPlayer( i );
-					players.push( player );
-					container.appendChild( player.element );
+					//var video = item.videos[i];
+					var elementId = 'videoplayer-$i';
 
-					player.load( video.id, function() {
+					var element = document.createDivElement();
+					element.classList.add( 'videoplayer' );
+					element.id = elementId;
+					videoplayers.appendChild( element );
 
-						if( video.title != null ) infoElement.textContent = video.title;
-						if( video.volume != null ) player.volume = video.volume;
-						player.seekTo( (video.start != null) ? video.start : 0 );
-
-						trace( 'Player ${player.index} ready' );
-
-						if( players.length == item.videos.length ) {
-
-							trace( "Playlist ready" );
-
-							if( isMobile ) {
-								initButton.onclick = function() {
-									trace( "click" );
-									infoElement.style.display = 'inline-block';
-									initButton.remove();
-									//player.play();
-									play();
+					var player : YouTubePlayer;
+					player = new YouTubePlayer( elementId, {
+						width: "320",
+						height: "240",
+						playerVars: {
+							controls: no,
+							color: white,
+							autoplay: 0,
+							disablekb: 1,
+							fs: 0,
+							iv_load_policy: 3,
+							enablejsapi: 1,
+							modestbranding: 0,
+							showinfo: 0,
+							loop: 1
+						},
+						events: {
+							'onReady': function(e){
+								trace( 'Videoplayer $i ready' );
+								var video = item.videos[i];
+								var p : YouTubePlayer = e.target;
+								var volume = (video.volume == null) ? 100 : video.volume;
+								var start = (video.start == null) ? 1 : video.start;
+								p.setVolume( volume );
+								//p.loadVideoById( video.id, start );
+								p.cueVideoById( video.id, start );
+							},
+							'onStateChange': function(e){
+								trace(e);
+								var p : YouTubePlayer = e.target;
+								switch e.data {
+								case 5:
+									p.playVideo();
 								}
-							} else {
-								play();
+							},
+							'onError': function(e){
+								trace(e);
 							}
 						}
 					});
-
-					i++;
+					//player.loadVideoById( item.videos[i].id );
 				}
 			});
 		}

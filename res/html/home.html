@@ -1,0 +1,22 @@
+<style>
+	header h1 {
+		position: relative;
+		margin-top: 10vh;
+		margin-left: 8vw;
+	}
+	ol {
+		margin-top: 60px;
+		margin-left: 9vw;
+	}
+	ol li {
+		font-size: 38px;
+		letter-spacing: -3px;
+	}
+</style>
+			<ol class="playlist">
+				::foreach playlist::
+				<li>
+					<a href="::id::">::title::</a>
+				</li>
+				::end::
+			</ol>

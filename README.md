@@ -1,4 +1,4 @@
 
-# YUX
+# |||Y|U|X|||
 
-Audio mix application.
+Wisdom to listen to.

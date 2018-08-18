@@ -1,22 +1,22 @@
 -cp src
 #--no-traces
--debug
+#-debug
 -dce full
 --each
 
 --next
 -php bin
 -main yux.Index
--resource res/html/index.html@index
--resource res/html/track.html@track
--cmd mkdir -p bin/data
--cmd cp res/data/*.json bin/data/
--cmd cp res/web/htaccess bin/.htaccess
+-lib om.web
+-resource res/html/site.html@site
+-resource res/html/home.html@home
+-resource res/html/wisdom.html@wisdom
+-cmd cp -u res/web/htaccess bin/.htaccess
 
 --next
--js bin/yux.js
+-js bin/app.js
 -main yux.App
 -lib om.api
--cmd lessc res/style/yux.less bin/yux.css
--cmd cp -r res/font bin/
--cmd cp -r res/image bin/
+-cmd lessc res/style/app.less bin/app.css
+-cmd cp -ru res/font bin/
+-cmd cp -ru res/image bin/
