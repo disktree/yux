@@ -248,7 +248,6 @@
 			{
 				"id": "N0KRSny4eTU",
 				"volume": 20
-
 			}
 		]
 	},
@@ -264,6 +263,50 @@
 				"id": "pX_jySkFIK4",
 				"volume": 70,
 				"start": 8
+			}
+		]
+	},
+	{
+		"title": "Religion Beyond Dogma",
+		"videos": [
+			{
+				"id": "i_PyrUfsf0g",
+				"volume": 100,
+				"start": 1
+			},
+			{
+				"id": "9UBWgeSJlWw",
+				"volume": 50,
+				"start": 1
+			}
+		]
+	},
+	{
+		"title": "Cocaine and Karma",
+		"videos": [
+			{
+				"id": "-SkUozXVQ9w",
+				"volume": 100,
+				"start": 6
+			},
+			{
+				"id": "11JITPeYAWs",
+				"volume": 15
+			}
+		]
+	},
+	{
+		"title": "Science Beyond Materialism",
+		"videos": [
+			{
+				"id": "Y_YcnOnqIVM",
+				"volume": 80,
+				"start": 6
+			},
+			{
+				"id": "HBoWf3t9FsE",
+				"volume": 100,
+				"start": 1
 			}
 		]
 	}
