@@ -9,22 +9,9 @@ import sys.io.File;
 
 class Index {
 
-	static inline var ROOT = #if debug '/pro/yux/bin/' #else '' #end;
+	static var playlist : Array<Dynamic>;
 
-	static function main() {
-		var path = php.Web.getURI().substr( ROOT.length );
-        var dispatcher = new Dispatch( path, php.Web.getParams() );
-		try dispatcher.dispatch( new Index() ) catch( e : DispatchError ) {
-			Sys.print(e);
-		}
-	}
-
-	var playlist : Array<Dynamic>;
-
-	function new() {
-		playlist = Json.parse( File.getContent( 'playlist.json' ) );
-		for( i in 0...playlist.length ) playlist[i].id = i+1;
-	}
+	function new() {}
 
 	function doDefault( ?id : Int ) {
 
@@ -60,6 +47,21 @@ class Index {
 	static function executeTemplate( id : String, ?ctx : Dynamic ) {
 		if( ctx == null ) ctx = {};
 		return new Template( Resource.getString( id ) ).execute( ctx );
+	}
+
+	static function main() {
+
+		playlist = Json.parse( File.getContent( 'playlist.json' ) );
+		for( i in 0...playlist.length ) playlist[i].id = i+1;
+
+		var path = php.Web.getURI();
+		var host = php.Web.getHostName();
+		if( host == 'localhost' ) path = path.substr( '/pro/disktree/yux/bin/'.length );
+
+        var dispatcher = new Dispatch( path, php.Web.getParams() );
+		try dispatcher.dispatch( new Index() ) catch( e : DispatchError ) {
+			Sys.print(e);
+		}
 	}
 
 }
