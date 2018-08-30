@@ -1,2 +1,6 @@
-bin/*
-!bin/playlist.json
+bin/lib/
+bin/res/
+bin/*.css
+bin/*.js
+bin/*.js.map
+bin/*.php

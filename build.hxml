@@ -1,7 +1,6 @@
 -cp src
-#--no-traces
-#-debug
 -dce full
+-debug
 --each
 
 --next
@@ -11,12 +10,9 @@
 -resource res/html/site.html@site
 -resource res/html/home.html@home
 -resource res/html/wisdom.html@wisdom
--cmd cp -u res/web/htaccess bin/.htaccess
 
 --next
 -js bin/app.js
 -main yux.App
 -lib om.api
 -cmd lessc res/style/app.less bin/app.css
--cmd cp -ru res/font bin/
--cmd cp -ru res/image bin/
