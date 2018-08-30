@@ -1,4 +1,6 @@
 
 # |||Y|U|X|||
 
-Wisdom to listen to.
+http://yux.disktree.net/
+
+Wisdom.
