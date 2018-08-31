@@ -24,78 +24,80 @@ typedef VideoItem = {
 class App {
 
 	static var isMobile : Bool;
+	static var item : PlaylistItem;
+	static var container : Element;
 	static var players : Array<YouTubePlayer>;
+
+	static function initPlayer( i : Int, loop : Bool ) {
+
+		var elementId = 'videoplayer-$i';
+		var element = document.createDivElement();
+		element.classList.add( 'videoplayer' );
+		element.id = elementId;
+		container.appendChild( element );
+
+		var player : YouTubePlayer;
+		player = new YouTubePlayer( elementId, {
+			width: "320",
+			height: "240",
+			playerVars: {
+				controls: no,
+				color: white,
+				autoplay: 0,
+				disablekb: 1,
+				fs: 0,
+				iv_load_policy: 3,
+				enablejsapi: 1,
+				modestbranding: 0,
+				showinfo: 0,
+				loop: loop ? 1 : 0
+			},
+			events: {
+				'onReady': function(e){
+					console.debug( 'Videoplayer $i ready' );
+					var video = item.videos[i];
+					var p : YouTubePlayer = e.target;
+					var volume = (video.volume == null) ? 100 : video.volume;
+					var start = (video.start == null) ? 1 : video.start;
+					p.setVolume( volume );
+					p.cueVideoById( video.id, start );
+				},
+				'onStateChange': function(e){
+					trace(e.data);
+					var p : YouTubePlayer = e.target;
+					switch e.data {
+					case video_cued:
+						p.playVideo();
+					default:
+					}
+				},
+				'onError': function(e){
+					trace(e);
+				}
+			}
+		});
+	}
 
 	static function main() {
 
-		console.log( '|||Y|U|X|||' );
+		console.info( '|||Y|U|X|||' );
 
 		window.onload = function() {
 
 			isMobile = om.System.isMobile();
 			players = [];
 
-			var item : PlaylistItem = untyped ITEMDATA;
-			trace(item);
+			container = document.getElementById( 'videoplayers' );
+
+			item = untyped ITEMDATA;
+			console.info(item);
 
 			YouTube.init( function() {
 
 				trace( 'Youtube ready' );
 
-				var videoplayers = document.getElementById( 'videoplayers' );
-
-				for( i in 0...item.videos.length ) {
-
-					//var video = item.videos[i];
-					var elementId = 'videoplayer-$i';
-
-					var element = document.createDivElement();
-					element.classList.add( 'videoplayer' );
-					element.id = elementId;
-					videoplayers.appendChild( element );
-
-					var player : YouTubePlayer;
-					player = new YouTubePlayer( elementId, {
-						width: "320",
-						height: "240",
-						playerVars: {
-							controls: no,
-							color: white,
-							autoplay: 0,
-							disablekb: 1,
-							fs: 0,
-							iv_load_policy: 3,
-							enablejsapi: 1,
-							modestbranding: 0,
-							showinfo: 0,
-							loop: 1
-						},
-						events: {
-							'onReady': function(e){
-								trace( 'Videoplayer $i ready' );
-								var video = item.videos[i];
-								var p : YouTubePlayer = e.target;
-								var volume = (video.volume == null) ? 100 : video.volume;
-								var start = (video.start == null) ? 1 : video.start;
-								p.setVolume( volume );
-								//p.loadVideoById( video.id, start );
-								p.cueVideoById( video.id, start );
-							},
-							'onStateChange': function(e){
-								trace(e);
-								var p : YouTubePlayer = e.target;
-								switch e.data {
-								case 5:
-									p.playVideo();
-								}
-							},
-							'onError': function(e){
-								trace(e);
-							}
-						}
-					});
-					//player.loadVideoById( item.videos[i].id );
-				}
+				initPlayer( 0, false );
+				initPlayer( 1, true );
 			});
 		}
 	}
