@@ -68,6 +68,12 @@ class App {
 					switch e.data {
 					case video_cued:
 						p.playVideo();
+					case ended:
+						if( i == 0 ) {
+							Timer.delay( function() {
+								window.location.href = 'http://yux.disktree.net/';
+							}, 1000 );
+						}
 					default:
 					}
 				},
