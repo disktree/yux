@@ -68,6 +68,9 @@ class App {
 					switch e.data {
 					case video_cued:
 						p.playVideo();
+					case playing:
+						var title = document.querySelector( 'header h1' );
+						title.classList.remove( 'preload' );
 					case ended:
 						if( i == 0 ) {
 							Timer.delay( function() {
