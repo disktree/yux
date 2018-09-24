@@ -309,5 +309,64 @@
 				"start": 1
 			}
 		]
+	},
+	{
+		"title": "The Living Universe Beyond Our Sensory Perceptions",
+		"videos": [
+			{
+				"id": "3UEw-z7tc3M",
+				"volume": 100,
+				"start": 3
+			},
+			{
+				"id": "OZTNn4wlegM",
+				"volume": 40,
+				"start": 2
+			}
+		]
+	},
+	{
+		"title": "Philosophy Beyond Doctrine",
+		"videos": [
+			{
+				"id": "QEHwoNP9fKE",
+				"volume": 90,
+				"start": 3
+			},
+			{
+				"id": "zR9Sx0gX0FY",
+				"volume": 65,
+				"start": 5
+			}
+		]
+	},
+	{
+		"title": "Creative Self-Expression the Lost Art",
+		"videos": [
+			{
+				"id": "zWLCFbYMvJ4",
+				"volume": 100,
+				"start": 1
+			},
+			{
+				"id": "bQKzKqoExmc",
+				"volume": 40
+			}
+		]
+	},
+	{
+		"title": "Weighed in the Balance and Found Wanting Too Much",
+		"videos": [
+			{
+				"id": "lgGlhWeUMaI",
+				"volume": 90,
+				"start": 90
+			},
+			{
+				"id": "ItK1A1kA29k",
+				"volume": 70,
+				"start": 7
+			}
+		]
 	}
 ]
