@@ -4,36 +4,29 @@
 
 		<meta charset="utf-8">
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="description" content="ʍӋϟŁξЯӋ ʘӺ ʍɅҊӃіƝÐ">
-		<meta name="keywords" content="wisdom,philosophy,ambient">
 		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
 		<meta name="theme-color" content="#0b0b0b">
-
-		<title>::title::</title>
+		<meta name="description" content="::site.description::">
+		<meta name="keywords" content="::foreach site.keywords::::__current__::,::end::">
 
 		<meta name="twitter:card" content="summary"/>
 		<meta name="twitter:creator" content="@disktree"/>
-		<meta name="twitter:title" content="::twitter.title::"/>
-		<meta name="twitter:description" content="::twitter.description::"/>
+		<meta name="twitter:title" content="::site.twitter.title::"/>
+		<meta name="twitter:description" content="::site.twitter.description::"/>
 		<meta name="twitter:image" content="http://yux.disktree.net/image/al_azif-card.png"/>
 
-		<link rel="stylesheet" href="app.css" media="screen">
+		<title>::site.title::</title>
+
+		<link rel="stylesheet" href="style.css" media="screen">
 
 	</head>
 
-	<body id="::id::">
-
+	<body>
 		<header>
-			::if title::<h1 class="preload">::title::</h1>::end::
+			<h1>::page.title::</h1>
 		</header>
-
-		<main>
-			::content::
-		</main>
-
+		<main>::page.content::</main>
 		<footer>https://disktree.net</footer>
-
 	</body>
 
 </html>
