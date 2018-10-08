@@ -54,13 +54,21 @@ class App {
 			},
 			events: {
 				'onReady': function(e){
+					trace(">>>");
 					console.debug( 'Videoplayer $i ready' );
 					var video = item.videos[i];
 					var p : YouTubePlayer = e.target;
 					var volume = (video.volume == null) ? 100 : video.volume;
 					var start = (video.start == null) ? 1 : video.start;
+					var delay = (video.delay == null) ? 0 : video.delay;
 					p.setVolume( volume );
-					p.cueVideoById( video.id, start );
+					if( delay > 0 ) {
+						Timer.delay( function(){
+							p.cueVideoById( video.id, start );
+						}, delay*1000 );
+					} else {
+						p.cueVideoById( video.id, start );
+					}
 				},
 				'onStateChange': function(e){
 					trace(e.data);
