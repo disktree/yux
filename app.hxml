@@ -1,0 +1,7 @@
+-js bin/app.js
+-main yux.App
+-lib om.api
+-cmd lessc res/style/index.less bin/style.css --include-path=$DEV_PATH/lib/enron/src
+-cp src
+-dce full
+-debug

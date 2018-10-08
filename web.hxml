@@ -1,0 +1,6 @@
+-php bin
+-main yux.Web
+-cp src
+-lib om.web
+-dce full
+-debug
