@@ -368,5 +368,37 @@
 				"start": 7
 			}
 		]
+	},
+	{
+		"title": "Mental Attitudes Affect Physical Health",
+		"videos": [
+			{
+				"id": "C7uWE7FMnck",
+				"volume": 99,
+				"start": 134,
+				"delay": 6
+			},
+			{
+				"id": "Ne8EejKri1Y",
+				"volume": 30,
+				"start": 1
+			}
+		]
+	},
+	{
+		"title": "Seven Problems that are Plaguing the World",
+		"videos": [
+			{
+				"id": "lsr6DpuPzgU",
+				"volume": 70,
+				"start": 16,
+				"delay": 4
+			},
+			{
+				"id": "Ne8EejKri1Y",
+				"volume": 50,
+				"start": 1
+			}
+		]
 	}
 ]
