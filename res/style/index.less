@@ -1,34 +1,32 @@
 
-@import "enron/reset";
-@import "enron/typo";
+@import "enron/typography";
 
 @background-color: #0b0b0b;
 @text-color: #f0f0f0;
 @accent-color: #72DEC2;
 
-@font-family-headline: 'MainFont';
+@font-title: 'MainFont';
 
 @font-face {
-    font-family: @font-family-headline;
+    font-family: @font-title;
+	font-display: block;
     src:
-        local('Helvetica Neue 65'),
-        url('fnt/helvetica-65.woff2') format('woff2'),
-        url('fnt/helvetica-65.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: block;
+        url('fnt/helvetica_neue_65.woff2') format('woff2'),
+        url('fnt/helvetica_neue_65.woff') format('woff'),
+        url('fnt/helvetica_neue_65.ttf') format('truetype');
 }
+
 body {
 
-	font-family: @font-family-headline;
-	font-size: 1rem;
+	font-family: @font-title;
+	font-size: 16px;
 
 	background: @background-color;
 	color: @text-color;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'MainFont';
+	font-family: @font-title;
 	margin: 0;
 }
 
@@ -62,12 +60,12 @@ ol {
     background-color: #f0f0f0;
 }
 
-
 header {
-	margin: 20px;
+	margin: 40px 20px 10px 20px;
+	cursor: default;
 	h1 {
-		.h1;
-		letter-spacing: -0.275rem;
+		.typo-h1();
+		letter-spacing: -0.25rem;
 	}
 }
 

@@ -400,5 +400,35 @@
 				"start": 1
 			}
 		]
+	},
+	{
+		"title": "Coping with Mental and Emotional Depression",
+		"videos": [
+			{
+				"id": "UBinfSaF62s",
+				"volume": 90,
+				"start": 18,
+				"delay": 4
+			},
+			{
+				"id": "22XQbNsqpS4",
+				"volume": 70
+			}
+		]
+	},
+	{
+		"title": "Mystical Content in Scientific Knowledge",
+		"videos": [
+			{
+				"id": "rwQk0vSqjTA",
+				"volume": 90,
+				"start": 70,
+				"delay": 6
+			},
+			{
+				"id": "-7AGmLgpbmY",
+				"volume": 70
+			}
+		]
 	}
 ]

@@ -8,23 +8,13 @@ import js.Browser.window;
 import js.html.Element;
 import om.api.youtube.YouTube;
 import om.api.youtube.YouTubePlayer;
-
-typedef PlaylistItem = {
-	var title : String;
-	var videos : Array<VideoItem>;
-}
-typedef VideoItem = {
-	var id : String;
-	var title : String;
-	@:optional var volume : Int;
-	@:optional var delay : Int;
-	@:optional var start : Int;
-}
+import yux.data.Item;
+import yux.data.Video;
 
 class App {
 
 	static var isMobile : Bool;
-	static var item : PlaylistItem;
+	static var item : Item;
 	static var container : Element;
 	static var players : Array<YouTubePlayer>;
 
@@ -54,7 +44,7 @@ class App {
 			},
 			events: {
 				'onReady': function(e){
-					trace(">>>");
+					trace(e);
 					console.debug( 'Videoplayer $i ready' );
 					var video = item.videos[i];
 					var p : YouTubePlayer = e.target;
