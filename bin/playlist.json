@@ -445,5 +445,52 @@
 				"volume": 15
 			}
 		]
+	},
+	{
+		"title": "Maturity is the Grand Illusion",
+		"videos": [
+			{
+				"id": "MwIo0h-xLiY",
+				"volume": 90,
+				"start": 2
+			},
+			{
+				"id": "TTHF2Dfw1Dg",
+				"volume": 50,
+				"start": 2
+			}
+		]
+	},
+	{
+		"title": "Truth & Error",
+		"videos": [
+			{
+				"id": "wYh1dvqOwtU",
+				"volume": 95,
+				"start": 1,
+				"delay": 4
+			},
+			{
+				"id": "ItK1A1kA29k",
+				"volume": 35,
+				"start": 2
+			}
+		]
+	},
+	{
+		"title": "Approach to the Preconscious",
+		"videos": [
+			{
+				"id": "xxwDkzPnO3s",
+				"volume": 95,
+				"start": 1,
+				"delay": 2
+			},
+			{
+				"id": "zR9Sx0gX0FY",
+				"volume": 35,
+				"start": 2
+			}
+		]
 	}
 ]
