@@ -1,6 +1,7 @@
 -php bin
 -main yux.Web
 -cp src
+-lib om.tpl
 -lib om.web
 -dce full
 -debug
